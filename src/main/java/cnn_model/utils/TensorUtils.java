@@ -9,13 +9,10 @@ import java.nio.FloatBuffer;
 
 public class TensorUtils {
     public static Tensor<Float> grayScaleTensorFromImage(BufferedImage image, int imgWidth, int imgHeight) {
-
         final int channels = 1;
-        // Generate image file to array
         int index = 0;
         FloatBuffer fb = FloatBuffer.allocate(imgWidth * imgHeight);
         Raster raster = image.getData();
-        // Convert image file to multi-dimension array
         for (int row = 0; row < imgHeight; row++) {
             for (int column = 0; column < imgWidth; column++) {
                 int pixel = raster.getSample(row, column, 0);

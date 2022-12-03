@@ -20,11 +20,6 @@ public class DrawModel implements Model {
 
         modelPath = new ClassPathResource(folderName).getURL();
 
-        if (modelPath == null) {
-            throw new RuntimeException(String.format(
-                    "Found no directory for %s specified"
-                    , folderName));
-        }
     }
 
     @Override

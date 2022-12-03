@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 
 
 public class ModelTest {
@@ -26,6 +27,7 @@ public class ModelTest {
         Model drawModel = new DrawModel();
         URL imageUrl = new ClassPathResource("test5.jpg").getURL();
         BufferedImage image = ImageIO.read(imageUrl);
+        System.out.println(Arrays.toString(drawModel.predict(image)));
         Assertions.assertNotEquals(drawModel.predict(image), null);
     }
 }
