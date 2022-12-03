@@ -3,6 +3,7 @@ package cnn_model;
 import cnn_model.utils.TensorUtils;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.tensorflow.SavedModelBundle;
 import org.tensorflow.Tensor;
 
@@ -10,7 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-@Component
+@Service
 public class DrawModel implements Model {
     private final URL modelPath;
 

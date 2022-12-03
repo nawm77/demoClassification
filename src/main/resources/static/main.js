@@ -16,10 +16,11 @@ window.onload = () => {
         tmp = canvas.toDataURL();
         img.src=tmp;
         img.style.display='inline';
+        console.log(tmp)
     }
     redir.onclick=function (event){
         tmp = "data:image/png;base64," + tmp.slice(22)
-        location.replace( tmp)
+        location.replace(tmp)
         console.log("hey")
     }
 
@@ -96,5 +97,4 @@ window.onload = () => {
             }
         });
     }
-
 }
