@@ -1,4 +1,4 @@
-package cnn_model;
+package com.example.demo.cnn_model;
 
 import java.awt.image.BufferedImage;
 

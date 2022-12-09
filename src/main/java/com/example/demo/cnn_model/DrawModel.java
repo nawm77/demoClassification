@@ -1,8 +1,7 @@
-package cnn_model;
+package com.example.demo.cnn_model;
 
-import cnn_model.utils.TensorUtils;
+import com.example.demo.cnn_model.utils.TensorUtils;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.tensorflow.SavedModelBundle;
 import org.tensorflow.Tensor;
