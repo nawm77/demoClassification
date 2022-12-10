@@ -1,4 +1,4 @@
-package cnn_model.utils;
+package com.example.demo.cnn_model.utils;
 
 import org.tensorflow.Tensor;
 

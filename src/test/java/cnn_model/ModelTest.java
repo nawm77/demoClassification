@@ -1,10 +1,11 @@
 package cnn_model;
 
 
+import com.example.demo.cnn_model.DrawModel;
+import com.example.demo.cnn_model.Model;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.ResourceLoader;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
