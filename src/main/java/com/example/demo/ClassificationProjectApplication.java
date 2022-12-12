@@ -15,8 +15,6 @@ public class ClassificationProjectApplication {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(ClassificationProjectApplication.class, args);
-		Model model = new DrawModel();
-		System.out.println(Arrays.toString((model.predict(ImageIO.read(new File("C:\\Users\\Ilya\\Desktop\\demoClassification\\src\\main\\resources\\test5.jpg"))))));
 	}
 
 

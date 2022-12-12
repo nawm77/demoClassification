@@ -19,7 +19,8 @@ public class ModelTest {
     @Test
     public void creationTest() throws IOException {
         DrawModel model = new DrawModel();
-        Assertions.assertEquals("/D:/demoClassification/target/classes/drawMIIT",
+//        Assertions.assertEquals("/D:/demoClassification/target/classes/drawMIIT",
+        Assertions.assertEquals("/C:/Users/Ilya/Desktop/demoClassification/target/classes/drawMIIT",
                 model.getModelPath().getPath());
     }
 
@@ -27,6 +28,33 @@ public class ModelTest {
     public void nonNullPrediction() throws IOException {
         Model drawModel = new DrawModel();
         URL imageUrl = new ClassPathResource("test5.jpg").getURL();
+        BufferedImage image = ImageIO.read(imageUrl);
+        System.out.println(Arrays.toString(drawModel.predict(image)));
+        Assertions.assertNotEquals(drawModel.predict(image), null);
+    }
+
+    @Test
+    public void nonNullPrediction2() throws IOException {
+        Model drawModel = new DrawModel();
+        URL imageUrl = new ClassPathResource("pict.jpg").getURL();
+        BufferedImage image = ImageIO.read(imageUrl);
+        System.out.println(Arrays.toString(drawModel.predict(image)));
+        Assertions.assertNotEquals(drawModel.predict(image), null);
+    }
+
+    @Test
+    public void nonNullPrediction3() throws IOException {
+        Model drawModel = new DrawModel();
+        URL imageUrl = new ClassPathResource("test1.jpg").getURL();
+        BufferedImage image = ImageIO.read(imageUrl);
+        System.out.println(Arrays.toString(drawModel.predict(image)));
+        Assertions.assertNotEquals(drawModel.predict(image), null);
+    }
+
+    @Test
+    public void nonNullPrediction4() throws IOException {
+        Model drawModel = new DrawModel();
+        URL imageUrl = new ClassPathResource("test2.jpg").getURL();
         BufferedImage image = ImageIO.read(imageUrl);
         System.out.println(Arrays.toString(drawModel.predict(image)));
         Assertions.assertNotEquals(drawModel.predict(image), null);

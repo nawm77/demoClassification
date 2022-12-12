@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Prediction</title>
 </head>
 <body>
-wergfuher
+<div style="display: inline-block">Я считаю что это</div>
+<div th:text="*{name}" style="display: inline-block"></div>
+<input type="button" value="Домой"
+       onclick='location.href="http://localhost:8080/paint"'>
 </body>
 </html>
