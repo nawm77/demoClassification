@@ -1,0 +1,395 @@
+/* raleway-regular - cyrillic */
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('../fonts/raleway-v28-cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/raleway-v28-cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+/* raleway-200 - cyrillic */
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 200;
+    src: local(''),
+         url('../fonts/raleway-v28-cyrillic-200.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/raleway-v28-cyrillic-200.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+  /* raleway-300 - cyrillic */
+  @font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+         url('../fonts/raleway-v28-cyrillic-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/raleway-v28-cyrillic-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html{
+    box-sizing: border-box;
+}
+*, *::before, *::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    height: 100%;
+  }
+
+.rectangle_mirror{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    border-radius: 48px;
+    z-index: 100;
+}
+
+.to_home_page{
+    position: relative;
+    display: block;
+    z-index: 200;
+    bottom: 30%;
+    left: 70%;
+}
+
+.rectangle_welcome{
+    position: relative;
+    width: 40%;
+    height: 70%;
+    top: 20%;
+    z-index: 101;
+    display: block;
+    left: 10%;
+}
+
+.welcome{
+    color: #33354A;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    z-index: 150;
+    font-family: Raleway;
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 60px;
+}
+
+.description{
+    color: #33354A;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    z-index: 150;
+    font-family: Raleway;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 28px;
+    top: 8%;
+}
+
+.rectangle{
+    position: fixed;
+    width: 100%;
+    height: 91px;
+    background-color: #33354A;
+    margin: 0 auto;
+}
+
+.header_logo-pic{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    padding: 25px;
+}
+
+/* .header_icon_nav{
+    position: fixed;
+    top: -6px;
+} */
+
+.header_icons_circle{
+    position: absolute;
+    top: -5px;
+    left: 22%;
+}
+
+.header_icons_anvil{
+    position: absolute;
+    top: -5px;
+    left: 11%;
+}
+
+.header_icons_airplane{
+    position: fixed;
+    top: -4px;
+    rotate: 10deg;
+}
+
+
+.header_icons_cloud{
+    position: fixed;
+    top: -9px;
+    right: 31%;
+}
+
+.header_icons_crab{
+    position: absolute;
+    top: -6px;
+    right: 20%;
+}
+
+.header_icons_star{
+    position: absolute;
+    top: -6px;
+    right: 9%;
+    rotate: -10deg;
+}
+
+.header_icons_moon{
+    position: absolute;
+    top: -4px;
+    left: 32%;
+    rotate: -15deg;
+}
+
+.header_icons_windmill{
+    position: absolute;
+    top: -6px;
+    right: 0%;
+}
+
+.rectangle_for_button{
+    position: relative;
+    width: 336px;
+    height: 40px;
+    top: 70%;
+    background: #fff;
+    z-index: 6;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.button_ready{
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    background-color:#20C1BD;
+    box-shadow: 0px 5px #389cb5, 0px 10px 10px rgba(0,0,0,0.25);
+    z-index: -1;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    bottom: 0%;
+    right: 0px;
+}
+
+.button_ready:hover{
+    background-color: #20C1BD;
+    transition: 0.3s;
+    transform: translateY(5px);
+    box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0,0,0,0.25);
+}
+
+.button_ready:focus{
+    outline: none;
+}
+
+.button_clear{
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    background-color:#A26FB4;
+    box-shadow: 0px 5px #a23ca6, 0px 10px 10px rgba(0,0,0,0.25);
+    z-index: -1;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    bottom: 0%;
+    right: 28%;
+}
+
+.button_clear:hover{
+    transition: 0.3s;
+    transform: translateY(5px);
+    box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0,0,0,0.25);
+}
+
+.button_clear:focus{
+    outline: none;
+}
+
+.main{
+    width: 336px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+.main_rectangle{
+    position: relative;
+    width: 336px;
+    height: 35px;
+    top: 72%;
+    background: #D9D9D9;
+    z-index: 6;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.rectangle_message{
+    position: relative;
+    width: 336px;
+    height: 110px;
+    top: 70%;
+    background: #33354A;
+    z-index: 5;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.text_main_rectangle{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    top: 10px;
+    left: 24%;
+    font-family: Raleway;
+    font-style: 200;
+}
+.text_rectangle_message{
+    position: relative;
+    display: block;
+    margin-bottom: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    top: 50px;
+    color: #fff;
+    font-family: Raleway;
+    font-style: 200;
+    font-size: large;
+}
+
+@media (max-width: 1029.9px){
+    .header_icons_moon{
+        display: none;
+    }
+    .header_icons_cloud{
+        display: none;
+    }
+    .header_icons_anvil{
+        left: 12%;
+    }
+    .header_icons_circle{
+        left: 25%;
+    }
+    .header_icons_crab{
+        right: 26%;
+    }
+    .header_icons_star{
+        right: 13%;
+    }
+    .welcome{
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .description{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 839.9px) {
+    .header_icons_circle{
+        display: none;
+    }
+    .header_icons_crab{
+        display: none;
+    }
+    .header_icons_anvil{
+        left: 17%;
+    }
+    .header_icons_star{
+        right: 16%;
+    }
+    .welcome{
+        font-size: 30px;
+    }
+    .description{
+        font-size: 10px;
+    }
+    .about_project{
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 599.9px) {
+    .header_icons_anvil{
+        display: none;
+    }
+    .header_icons_star{
+        display: none;
+    }
+    .header_icons_airplane{
+        left: 4%;
+    }
+    .header_icons_windmill{
+        right: 4%;
+    }
+}
+
+@media (max-width: 519.9px){
+    .header_icons_airplane{
+        left: 0px;
+    }
+    .header_icons_windmill{
+        right: 0px;
+    }
+}
+@media (max-width: 459.9px){
+    .header_icons_windmill{
+        display: none; 
+    }
+
+    .header_icons_airplane{
+        display: none;
+    }
+    .header_logo-pic{
+        align-items: center;
+    }
+    .main_rectangle{
+        width: 300px;
+        top: 430px;
+    }
+    .rectangle_for_button{
+        width: 300px;
+        top: 420px;
+    }
+    .rectangle_message{
+        width: 300px;
+        height: 100px;
+        top: 410px;
+    }
+    .text_main_rectangle{
+        left: 20%;
+    }
+}

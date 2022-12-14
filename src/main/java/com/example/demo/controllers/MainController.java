@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +23,7 @@ public class MainController {
     private byte[] image;
     private List predList = new ArrayList();
     private String classPred;
+
     @PostMapping("/saveCanvasImage")
     public String save(@RequestParam(value = "imageBase64") String imageData) {
         System.out.println(imageData);
@@ -48,6 +50,10 @@ public class MainController {
             BufferedImage img = ImageIO.read(bis);
             Model model = new DrawModel();
             float[] predFloat = model.predict(img);
+            System.out.println(Arrays.toString(image));
+            File output = new File("output.png");
+            output.createNewFile();
+            ImageIO.write(img, "png", output);
             List<Float> floatList = new ArrayList<>();
             float max = predFloat[0];
             for (int i = 1; i < predFloat.length; i++) {
@@ -56,8 +62,8 @@ public class MainController {
                 }
                 floatList.add(predFloat[i]);
             }
-            classPred= (String) predList.get(floatList.indexOf(max)+1);
-            System.out.println(predList.get(floatList.indexOf(max)+1));
+            classPred = (String) predList.get(floatList.indexOf(max) + 1);
+            System.out.println(predList.get(floatList.indexOf(max) + 1));
             System.out.println(Arrays.toString(model.predict(img)));
             Name name = new Name(classPred);
             model1.addAttribute("name", name);
@@ -73,7 +79,12 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String getHello(){
-        return "index";
+    public String home() {
+        return "page1";
+    }
+
+    @GetMapping("/test2")
+    public String getTest2() {
+        return "page2";
     }
 }

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw.miit</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        .button {
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            padding: 1px;
+            cursor: pointer;
+            border: solid 1px #fff;
+        }
+
+        .button:hover {
+            border: solid 1px #f00;
+        }
+
+        .button:active {
+            border: solid 1px #ff0;
+        }
+
+        #palette, #canvas {
+            display: inline-block;
+            border: solid 1px #aaa;
+            cursor: default;
+            vertical-align: top;
+        }
+
+        #palette {
+            width: 95px;
+        }
+
+        #clear {
+            background: #eee;
+            color: #777;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            margin: 15px auto;
+            cursor: pointer;
+        }
+
+        .container {
+            white-space: normal;
+            width: 710px;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function onWindowLoad() {
+            // Инициализируем переменные
+            // Генерируем палитру в элемент #palette
+            generatePalette(document.getElementById("palette"));
+
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            context.fillStyle="white";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            // переменные для рисования
+            context.lineCap = "round";
+            context.lineWidth = 3;
+
+            // вешаем обработчики на кнопки
+            // очистка изображения
+            document.getElementById("clear").onclick = function clear() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+            };
+
+            // На любое движение мыши по canvas будет выполнятся эта функция
+            canvas.onmousemove = function drawIfPressed (e) {
+                // в "e"  попадает экземпляр MouseEvent
+                var x = e.offsetX;
+                var y = e.offsetY;
+                var dx = e.movementX;
+                var dy = e.movementY;
+
+                // Проверяем зажата ли какая-нибудь кнопка мыши
+                // Если да, то рисуем
+                if (e.buttons > 0) {
+                    context.beginPath();
+                    context.moveTo(x, y);
+                    context.lineTo(x - dx, y - dy);
+                    context.stroke();
+                    context.closePath();
+                }
+            };
+
+            function generatePalette(palette) {
+                // генерируем палитру
+                // в итоге 5^3 цветов = 125
+                for (var r = 0, max = 4; r <= max; r++) {
+                    for (var g = 0; g <= max; g++) {
+                        for (var b = 0; b <= max; b++) {
+                            var paletteBlock = document.createElement('div');
+                            paletteBlock.className = 'button';
+                            paletteBlock.addEventListener('click', function changeColor(e) {
+                                context.strokeStyle = e.target.style.backgroundColor;
+                            });
+
+                            paletteBlock.style.backgroundColor = (
+                                'rgb(' + Math.round(r * 255 / max) + ", "
+                                + Math.round(g * 255 / max) + ", "
+                                + Math.round(b * 255 / max) + ")"
+                            );
+
+                            palette.appendChild(paletteBlock);
+                        }
+                    }
+                }
+            }
+        });
+        function saveCanvasImage(){
+            let canvas = document.getElementById("canvas")
+            let imageData = canvas.toDataURL("image/jpg");
+            console.log(imageData);
+
+            $.ajax({
+                url: 'http://localhost:8080/saveCanvasImage',
+                data: { imageBase64: imageData },
+                type: 'POST',
+                dataType: 'JSON',
+                timeout: 10000,
+                async: false
+            });
+
+            $.ajax({
+                url: 'http:localhost:8080/predict',
+                type: 'GET'
+            })
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="rectangle">
+            <div class="header_logo">
+                <a href="/" class="header_logo-link">
+                    <img src="/images/Draw.miit.svg" alt="Draw.miit" class="header_logo-pic">
+                </a>
+            </div>
+            <div class="header_icons">
+                <!-- <nav class="header_icon_nav">
+                    <a href="#info" class="header_icon_nav">
+                        <img src="./images/info1.png" alt="info1" class="icon_info">
+                    </a>
+                </nav> -->
+                <img src="/images/icons8_circled_thin_100_1.png" alt="circle" class="header_icons_circle">
+                <img src="/images/icons8________100_1.png" alt="anvil" class="header_icons_anvil">
+                <img src="/images/icons8________________________100_1.png" alt="airplane" class="header_icons_airplane">
+                <img src="/images/cloud.png" alt="cloud "class="header_icons_cloud">
+                <img src="/images/crab.png" alt="crab" class="header_icons_crab">
+                <img src="/images/icons8_christmas_star_100_1.png" alt="star" class="header_icons_star">
+                <img src="/images/icons8_moon_symbol_100_1.png" alt="moon" class="header_icons_moon">
+                <img src="/images/icons8_windmill_100_1.png" alt="windmill" class="header_icons_windmill">
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="rectangle_for_button">
+            <a href="#">
+                <button type="button" class="button_clear">Очистить холст</button>
+            </a>
+            <a href="#">
+                <button type="button" class="button_ready">Готово!</button>
+            </a>
+            
+        </div>
+        <div class="main_rectangle">
+            <div class="text_main_rectangle">Искусственный интеллект</div>
+        </div>
+        <div class="rectangle_message">
+            <div class="text_rectangle_message">Добро пожаловать, студент, в игру Draw.miit! Будь как дома ;)</div>
+        </div>
+    </div>
+</body>
+</html>
