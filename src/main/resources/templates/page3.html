@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+        .main_rectangle {
+            position: relative;
+            width: 400px;
+            height: 35px;
+            top: 350px;
+            background: #D9D9D9;
+            border-radius: 20px;
+            z-index: 6;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+        }
+
+        .rectangle_message {
+            position: relative;
+            width: 400px;
+            height: 110px;
+            top: 320px;
+            background: #33354A;
+            border-radius: 20px;
+            z-index: 5;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+        }
+
+        .text_main_rectangle {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            text-align: center;
+            top: 10px;
+            font-family: Raleway;
+            font-style: 200;
+        }
+
+        .text_rectangle_message {
+            text-align: center;
+            position: relative;
+            display: block;
+            margin-bottom: 15%;
+            margin-left: 5%;
+            margin-right: 5%;
+            text-align: center;
+            top: 50px;
+            color: #fff;
+            font-family: Raleway;
+            font-style: 200;
+            font-size: large;
+        }
+
+        .rectangle_for_button {
+            position: relative;
+            width: 336px;
+            height: 30px;
+            top: 320px;
+            background: #fff;
+            z-index: 6;
+            display: block;
+            /*margin-top: 10px;*/
+            /*border: #389cb5 5px solid;*/
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+        }
+
+        .button_ready {
+            position: absolute;
+            width: 135px;
+            height: 20px;
+            background-color: #20C1BD;
+            box-shadow: 0px 5px #389cb5, 0px 10px 10px rgba(0, 0, 0, 0.25);
+            z-index: -1;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            bottom: 0%;
+            right: 30px;
+        }
+
+        .button_ready:hover {
+            background-color: #20C1BD;
+            transition: 0.3s;
+            transform: translateY(5px);
+            box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .button_ready:focus {
+            outline: none;
+        }
+
+        .button_clear {
+            position: absolute;
+            width: 120px;
+            height: 20px;
+            background-color: #A26FB4;
+            box-shadow: 0px 5px #a23ca6, 0px 10px 10px rgba(0, 0, 0, 0.25);
+            z-index: -1;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            bottom: 0%;
+            left: 40px;
+        }
+
+        .button_clear:hover {
+            transition: 0.3s;
+            transform: translateY(5px);
+            box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .button_clear:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<div class="main_rectangle">
+    <div class="text_main_rectangle">Искусственный интеллект считает что это...</div>
+</div>
+<div class="rectangle_message">
+    <div class="text_rectangle_message" th:text="*{name}">null</div>
+</div>
+<div class="rectangle_for_button">
+    <a href="/">
+        <button type="button" class="button_clear">Домой</button>
+    </a>
+    <a href="/paint">
+        <button type="button" class="button_ready">Вернуться к холсту</button>
+    </a>
+</div>
+</body>
+</html>

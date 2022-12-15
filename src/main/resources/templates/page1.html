@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Draw.miit</title>
-    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
                 <div class="description">Данный сервис позволяет осуществлять классификацию черновых рисунков на основе свёрточной нейронной сети. Хотите развлечься и проверить мощь искусственного интеллекта? Беритесь за карандаш и линейку!</div>
             </div>
             <div class="to_home_page">
-                <a href="/test2">
+                <a href="/paint">
                     <img src="/images/Rectangle.svg" alt="go_to_home_page" class="go_to_home_page">
                 </a>
             </div>
@@ -48,20 +48,24 @@
         </div>
     </div>
     <div class="main">
-        <div class="rectangle_for_button">
-            <a href="#">
-                <button type="button" class="button_clear">Очистить холст</button>
-            </a>
-            <a href="#">
-                <button type="button" class="button_ready">Готово!</button>
-            </a>
-            
-        </div>
-        <div class="main_rectangle">
-            <div class="text_main_rectangle">Искусственный интеллект</div>
-        </div>
-        <div class="rectangle_message">
-            <div class="text_rectangle_message">Добро пожаловать, студент, в игру Draw.miit! Будь как дома ;)</div>
+        <div class="main">
+            <div class="rectangles">
+                <div class="main_rectangle">
+                    <div class="text_main_rectangle">Искусственный интеллект</div>
+                </div>
+                <div class="rectangle_message">
+                    <div class="text_rectangle_message">Добро пожаловать, студент, в игру Draw.miit! Будь как дома ;)</div>
+                </div>
+                <div class="rectangle_for_button">
+                    <a href="#">
+                        <button type="button" class="button_clear">Очистить холст</button>
+                    </a>
+                    <a href="#">
+                        <button type="button" class="button_ready">Готово!</button>
+                    </a>
+                </div>
+                <div class="draw"></div>
+            </div>    
         </div>
     </div>
 </body>

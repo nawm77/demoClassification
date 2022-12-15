@@ -23,7 +23,8 @@
     }
 
     #palette, #canvas {
-      display: inline-block;
+      display: block;
+      /*display: inline-block;*/
       border: solid 1px #aaa;
       cursor: default;
       vertical-align: top;
@@ -135,12 +136,16 @@
 </head>
 <body>
 <div class="container">
-  <canvas id='canvas' width="255" height="255">Ваш браузер устарел!</canvas>
-  <div id="palette"></div>
-  <div id="clear">Очистить изображение</div>
+    <div id="clear" style="display: none">Очистить изображение</div>
     <button type="submit" id="submit" onclick="saveCanvasImage();">Download</button>
     <input type="button" value="распознать"
            onclick='location.href="http://localhost:8080/predict"'>
+  <canvas id='canvas' width="255" height="255">Ваш браузер устарел!</canvas>
+  <div id="palette" style="display: none"></div>
+<!--  <div id="clear">Очистить изображение</div>-->
+<!--    <button type="submit" id="submit" onclick="saveCanvasImage();">Download</button>-->
+<!--    <input type="button" value="распознать"-->
+<!--           onclick='location.href="http://localhost:8080/predict"'>-->
 </div>
 </body>
 </html>

@@ -22,7 +22,7 @@ public class MainController {
     private String url = "";
     private byte[] image;
     private List predList = new ArrayList();
-    private String classPred;
+    private String classPred ="null";
 
     @PostMapping("/saveCanvasImage")
     public String save(@RequestParam(value = "imageBase64") String imageData) {
@@ -33,8 +33,69 @@ public class MainController {
         return "hey";
     }
 
+//    @GetMapping("/predict")
+//    public String getHi(org.springframework.ui.Model model1) {
+//        predList.add("Самолёт");
+//        predList.add("Наковальня");
+//        predList.add("Облако");
+//        predList.add("Краб");
+//        predList.add("Луна");
+//        predList.add("Квадрат");
+//        predList.add("Звезда");
+//        predList.add("Треугольник");
+//        predList.add("Мельница");
+//        predList.add("Зебра");
+//        try {
+//            ByteArrayInputStream bis = new ByteArrayInputStream(image);
+//            BufferedImage img = ImageIO.read(bis);
+//            Model model = new DrawModel();
+//            float[] predFloat = model.predict(img);
+//            System.out.println(Arrays.toString(image));
+//            File output = new File("output.png");
+//            output.createNewFile();
+//            ImageIO.write(img, "png", output);
+//            List<Float> floatList = new ArrayList<>();
+//            float max = predFloat[0];
+//            for (int i = 1; i < predFloat.length; i++) {
+//                if (predFloat[i] > max) {
+//                    max = predFloat[i];
+//                }
+//                floatList.add(predFloat[i]);
+//            }
+//            classPred = (String) predList.get(floatList.indexOf(max) + 1);
+//            System.out.println(predList.get(floatList.indexOf(max) + 1));
+//            System.out.println(Arrays.toString(model.predict(img)));
+//            Name name = new Name(classPred);
+//            model1.addAttribute("name", name);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return "hey";
+//    }
+
+//    @GetMapping("/paint")
+//    public String getPaint() {
+//        return "paint";
+//    }
+
+    @GetMapping("/")
+    public String home() {
+        return "page1";
+    }
+
+    @GetMapping("/paint")
+    public String getTest2() {
+        return "page2";
+    }
+
+    @GetMapping("/testing")
+    public String test() throws InterruptedException{
+        Thread.sleep(4000);
+        return "index";
+    }
+
     @GetMapping("/predict")
-    public String getHi(org.springframework.ui.Model model1) {
+    public String pred(org.springframework.ui.Model model1){
         predList.add("Самолёт");
         predList.add("Наковальня");
         predList.add("Облако");
@@ -70,21 +131,11 @@ public class MainController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return "hey";
+        return "page3";
     }
 
-    @GetMapping("/paint")
-    public String getPaint() {
-        return "paint";
-    }
-
-    @GetMapping("/")
-    public String home() {
-        return "page1";
-    }
-
-    @GetMapping("/test2")
-    public String getTest2() {
-        return "page2";
+    @GetMapping("/ebalda")
+    public String getEbalda(){
+        return "test";
     }
 }

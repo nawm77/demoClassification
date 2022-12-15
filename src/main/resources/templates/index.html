@@ -17,8 +17,8 @@
 
         canvas {
             display: inline-block;
-            width: 100%;
-            height: 100%;
+            width: 255px;
+            height: 255px;
             background-color: #e3dcd2;
         }
     </style>
@@ -99,7 +99,7 @@
             });
 
             $.ajax({
-                url: 'http:localhost:8080/hey',
+                url: 'http:localhost:8080/predict',
                 type: 'GET'
             })
         }
@@ -108,7 +108,7 @@
 <body>
 <button type="submit" id="submit" onclick="saveCanvasImage();">Download</button>
 <input type="button" value="распознать"
-       onclick='location.href="http://localhost:8080/hey"'>
+       onclick='location.href="http://localhost:8080/predict"'>
 <!--<form method="post" action="localhost:8080/saveImage">-->
 <!--    <button type="submit" id="submit" onclick="saveCanvasImage();">Download</button>-->
 <!--</form>-->

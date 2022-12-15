@@ -40,6 +40,14 @@ html,body {
     height: 100%;
   }
 
+.main{
+    width: 336px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
 .rectangle_mirror{
     position: fixed;
     width: 100%;
@@ -170,14 +178,93 @@ html,body {
     right: 0%;
 }
 
+.draw{
+    position: relative;
+    width: 276px;
+    height: 276px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    background: #FFFFFF;
+    border: 10px dashed #A26FB4; 
+}
+
+.rectangles{
+    position: fixed;
+    width: 336px;
+    height: 600px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+
+.main_rectangle{
+    position: relative;
+    width: 336px;
+    height: 35px;
+    top: 450px;
+    background: #D9D9D9;
+    border-radius: 20px;
+    z-index: 6;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.rectangle_message{
+    position: relative;
+    width: 336px;
+    height: 110px;
+    top: 420px;
+    background: #33354A;
+    border-radius: 20px;
+    z-index: 5;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.text_main_rectangle{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    top: 10px;
+    left: 24%;
+    font-family: Raleway;
+    font-style: 200;
+}
+
+.text_rectangle_message{
+    position: relative;
+    display: block;
+    margin-bottom: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    top: 50px;
+    color: #fff;
+    font-family: Raleway;
+    font-style: 200;
+    font-size: large;
+}
+
 .rectangle_for_button{
     position: relative;
     width: 336px;
-    height: 40px;
-    top: 70%;
+    height: 30px;
+    top: 260px;
     background: #fff;
     z-index: 6;
     display: block;
+    /*margin-top: 10px;*/
+    /*border: #389cb5 5px solid;*/
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -194,7 +281,7 @@ html,body {
     border:none;
     border-radius:10px;
     bottom: 0%;
-    right: 0px;
+    right: 40px;
 }
 
 .button_ready:hover{
@@ -219,7 +306,7 @@ html,body {
     border:none;
     border-radius:10px;
     bottom: 0%;
-    right: 28%;
+    left: 40px;
 }
 
 .button_clear:hover{
@@ -232,63 +319,7 @@ html,body {
     outline: none;
 }
 
-.main{
-    width: 336px;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-}
-.main_rectangle{
-    position: relative;
-    width: 336px;
-    height: 35px;
-    top: 72%;
-    background: #D9D9D9;
-    z-index: 6;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-}
 
-.rectangle_message{
-    position: relative;
-    width: 336px;
-    height: 110px;
-    top: 70%;
-    background: #33354A;
-    z-index: 5;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-}
-
-.text_main_rectangle{
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    top: 10px;
-    left: 24%;
-    font-family: Raleway;
-    font-style: 200;
-}
-.text_rectangle_message{
-    position: relative;
-    display: block;
-    margin-bottom: 15%;
-    margin-left: 5%;
-    margin-right: 5%;
-    text-align: center;
-    top: 50px;
-    color: #fff;
-    font-family: Raleway;
-    font-style: 200;
-    font-size: large;
-}
 
 @media (max-width: 1029.9px){
     .header_icons_moon{
@@ -382,7 +413,7 @@ html,body {
     }
     .rectangle_for_button{
         width: 300px;
-        top: 420px;
+        top: 240px;
     }
     .rectangle_message{
         width: 300px;
@@ -393,3 +424,21 @@ html,body {
         left: 20%;
     }
 }
+
+@media (min-height: 700px){
+    .rectangles{
+        top: 70px;
+    }
+}
+
+@media (min-height: 900px) {
+    .rectangles{
+        top: 200px;
+    }
+}
+
+@media (min-height: 1100px) {
+    .rectangles{
+        top: 250px;
+    }
+} 
