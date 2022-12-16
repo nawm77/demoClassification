@@ -1,145 +1,607 @@
 <!DOCTYPE html>
-<html lang="en"
+<html lang="ru"
       xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw.miit</title>
     <link rel="stylesheet" href="/css/reset.css">
     <style>
-        .main_rectangle {
-            position: relative;
-            width: 400px;
-            height: 35px;
-            top: 350px;
-            background: #D9D9D9;
-            border-radius: 20px;
-            z-index: 6;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+
+    /* raleway-200 - cyrillic */
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 200;
+    src: local(''),
+         url('../fonts/raleway-v28-cyrillic-200.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/raleway-v28-cyrillic-200.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+  /* raleway-300 - cyrillic */
+  @font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+         url('../fonts/raleway-v28-cyrillic-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/raleway-v28-cyrillic-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+    
+    html{
+        box-sizing: border-box;
+    }
+    *, *::before, *::after{
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+    }
+
+    html,body {
+        height: 100%;
+    }
+
+    .main{
+        width: 400px;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+    }
+
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .circles{
+        position: absolute;
+        background: #fff;
+        background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .circles{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .circles li{
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 20px;
+        height: 20px;
+        /* background: #8f94fb; */
+        animation: animate 25s linear infinite;
+        bottom: -150px;
+        
+    }
+
+    .circles li:nth-child(1){
+        left: 25%;
+        width: 60px;
+        height: 60px;
+        background: #20C1BD;
+        animation-delay: 0s;
+    }
+
+
+    .circles li:nth-child(2){
+        left: 10%;
+        width: 20px;
+        height: 20px;
+        background: #8f94fb;
+        animation-delay: 2s;
+        animation-duration: 12s;
+    }
+
+    .circles li:nth-child(3){
+        left: 70%;
+        width: 20px;
+        height: 20px;
+        background: #A26FB4;
+        animation-delay: 4s;
+    }
+
+    .circles li:nth-child(4){
+        left: 40%;
+        width: 60px;
+        height: 60px;
+        background: #33354A;
+        animation-delay: 0s;
+        animation-duration: 18s;
+    }
+
+    .circles li:nth-child(5){
+        left: 65%;
+        width: 20px;
+        height: 20px;
+        background: #389cb5;
+        animation-delay: 0s;
+    }
+
+    .circles li:nth-child(6){
+        left: 75%;
+        width: 110px;
+        height: 110px;
+        background: #FBFFA8;
+        animation-delay: 3s;
+    }
+
+    .circles li:nth-child(7){
+        left: 35%;
+        width: 150px;
+        height: 150px;
+        background: #4e54c8;
+        animation-delay: 7s;
+    }
+
+    .circles li:nth-child(8){
+        left: 50%;
+        width: 25px;
+        height: 25px;
+        background: #33354A;
+        animation-delay: 15s;
+        animation-duration: 45s;
+    }
+
+    .circles li:nth-child(9){
+        left: 20%;
+        width: 15px;
+        height: 15px;
+        background: #FBFFA8;
+        animation-delay: 2s;
+        animation-duration: 35s;
+    }
+
+    .circles li:nth-child(10){
+        left: 85%;
+        width: 150px;
+        height: 150px;
+        background: #389cb5;
+        animation-delay: 0s;
+        animation-duration: 11s;
+    }
+
+    .circles li:nth-child(11){
+        left: 15%;
+        width: 100px;
+        height: 100px;
+        background: #8f94fb;
+        border-radius: 200px;
+        animation-delay: 0s;
+        animation-duration: 11s;
+    }
+
+    .circles li:nth-child(12){
+        left: 30%;
+        width: 100px;
+        height: 100px;
+        animation-delay: 0s;
+        animation-duration: 11s;
+    }
+
+    .circles li:nth-child(13){
+        left: 63%;
+        width: 100px;
+        height: 100px;
+        animation-delay: 3s;
+        animation-duration: 15s;
+    }
+
+    .circles li:nth-child(14){
+        left: 42%;
+        width: 100px;
+        height: 100px;
+        animation-delay: 5s;
+        animation-duration: 20s;
+    }
+
+    .circles li:nth-child(15){
+        left: 79%;
+        width: 100px;
+        height: 100px;
+        animation-delay: 0s;
+        animation-duration: 15s;
+    }
+
+    .circles li:nth-child(16){
+        left: 11%;
+        width: 100px;
+        height: 100px;
+        animation-delay: 2s;
+        animation-duration: 30s;
+    }
+
+
+    @keyframes animate {
+
+        0%{
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+            border-radius: 0;
+        }
+
+        100%{
+            transform: translateY(-1000px) rotate(720deg);
+            opacity: 0;
+            border-radius: 50%;
+        }
+    }
+
+    .rectangle{
+        position: fixed;
+        width: 100%;
+        height: 91px;
+        background-color: #33354A;
+        margin: 0 auto;
+        z-index: 5;
+    }
+
+    .header_logo-pic{
+        position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+        padding: 25px;
+    }
+
+    .header_icons_circle{
+        position: absolute;
+        top: -5px;
+        left: 22%;
+    
+    }
+
+    .header_icons_anvil{
+        position: absolute;
+        top: -5px;
+        left: 11%;
+    }
+
+    .header_icons_airplane{
+        position: fixed;
+        top: -4px;
+        rotate: 10deg;
+    }
+
+
+    .header_icons_cloud{
+        position: fixed;
+        top: -9px;
+        right: 31%;
+    }
+
+    .header_icons_crab{
+        position: absolute;
+        top: -6px;
+        right: 20%;
+    }
+
+    .header_icons_star{
+        position: absolute;
+        top: -6px;
+        right: 9%;
+        rotate: -10deg;
+    }
+
+    .header_icons_moon{
+        position: absolute;
+        top: -4px;
+        left: 32%;
+        rotate: -15deg;
+    }
+
+    .header_icons_windmill{
+        position: absolute;
+        top: -6px;
+        right: 0%;
+    }
+
+    .rectangles{
+        position: fixed;
+        width: 400px;
+        height: 600px;
+        display: block;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        z-index: 5;
+    }
+
+    .main_rectangle {
+        position: relative;
+        width: 400px;
+        height: 35px;
+        top: 350px;
+        background: #D9D9D9;
+        border-radius: 20px;
+        z-index: 6;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+    }
+
+    .rectangle_message {
+        position: relative;
+        width: 400px;
+        height: 110px;
+        top: 320px;
+        background: #33354A;
+        border-radius: 20px;
+        z-index: 5;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+    }
+
+    .text_main_rectangle {
+        position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+        text-align: center;
+        top: 10px;
+        font-family: Raleway;
+        font-style: 200;
+        z-index: 7;
+    }
+
+    .text_rectangle_message {
+        text-align: center;
+        position: relative;
+        display: block;
+        margin-bottom: 15%;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+        top: 50px;
+        color: #fff;
+        font-family: Raleway;
+        font-style: 200;
+        font-size: large;
+        z-index: 7;
+    }
+
+    .rectangle_for_button {
+        position: relative;
+        width: 336px;
+        height: 30px;
+        top: 150px;
+        z-index: 6;
+        display: block;
+        /*margin-top: 10px;*/
+        /*border: #389cb5 5px solid;*/
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+    }
+
+    .button_ready {
+        position: absolute;
+        width: 135px;
+        height: 20px;
+        background-color: #20C1BD;
+        box-shadow: 0px 5px #389cb5, 0px 10px 10px rgba(0, 0, 0, 0.25);
+        z-index: 4;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        bottom: 0%;
+        right: 30px;
+    }
+
+    .button_ready:hover {
+        background-color: #20C1BD;
+        transition: 0.3s;
+        transform: translateY(5px);
+        box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .button_ready:focus {
+        outline: none;
+    }
+
+    .button_clear {
+        position: absolute;
+        width: 120px;
+        height: 20px;
+        background-color: #A26FB4;
+        box-shadow: 0px 5px #a23ca6, 0px 10px 10px rgba(0, 0, 0, 0.25);
+        z-index: 4;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        bottom: 0%;
+        left: 40px;
+    }
+
+    .button_clear:hover {
+        transition: 0.3s;
+        transform: translateY(5px);
+        box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .button_clear:focus {
+        outline: none;
+    }
+
+    @media (max-width: 1029.9px){
+        .header_icons_moon{
+            display: none;
+        }
+        .header_icons_cloud{
+            display: none;
+        }
+        .header_icons_anvil{
+            left: 12%;
+        }
+        .header_icons_circle{
+            left: 25%;
+        }
+        .header_icons_crab{
+            right: 26%;
+        }
+        .header_icons_star{
+            right: 13%;
+        }
+    }
+
+    @media (max-width: 839.9px) {
+        .header_icons_circle{
+            display: none;
+        }
+        .header_icons_crab{
+            display: none;
+        }
+        .header_icons_anvil{
+            left: 17%;
+        }
+        .header_icons_star{
+            right: 16%;
+        }
+    }
+
+    @media (max-width: 599.9px) {
+        .header_icons_anvil{
+            display: none;
+        }
+        .header_icons_star{
+            display: none;
+        }
+        .header_icons_airplane{
+            left: 4%;
+        }
+        .header_icons_windmill{
+            right: 4%;
+        }
+    }
+
+    @media (max-width: 519.9px){
+        .header_icons_airplane{
+            left: 0px;
+        }
+        .header_icons_windmill{
+            right: 0px;
+        }
+    }
+    @media (max-width: 459.9px){
+        .header_icons_windmill{
+            display: none; 
+        }
+
+        .header_icons_airplane{
+            display: none;
+        }
+        .header_logo-pic{
             align-items: center;
         }
-
-        .rectangle_message {
-            position: relative;
-            width: 400px;
-            height: 110px;
-            top: 320px;
-            background: #33354A;
-            border-radius: 20px;
-            z-index: 5;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            align-items: center;
+        .main_rectangle{
+            width: 300px;
+            top: 430px;
         }
-
-        .text_main_rectangle {
-            position: relative;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            align-items: center;
-            text-align: center;
-            top: 10px;
-            font-family: Raleway;
-            font-style: 200;
+        .rectangle_for_button{
+            width: 300px;
+            top: 240px;
         }
-
-        .text_rectangle_message {
-            text-align: center;
-            position: relative;
-            display: block;
-            margin-bottom: 15%;
-            margin-left: 5%;
-            margin-right: 5%;
-            text-align: center;
-            top: 50px;
-            color: #fff;
-            font-family: Raleway;
-            font-style: 200;
-            font-size: large;
+        .rectangle_message{
+            width: 300px;
+            height: 100px;
+            top: 410px;
         }
-
-        .rectangle_for_button {
-            position: relative;
-            width: 336px;
-            height: 30px;
-            top: 320px;
-            background: #fff;
-            z-index: 6;
-            display: block;
-            /*margin-top: 10px;*/
-            /*border: #389cb5 5px solid;*/
-            margin-left: auto;
-            margin-right: auto;
-            align-items: center;
+        .text_main_rectangle{
+            left: 20%;
         }
+    }
 
-        .button_ready {
-            position: absolute;
-            width: 135px;
-            height: 20px;
-            background-color: #20C1BD;
-            box-shadow: 0px 5px #389cb5, 0px 10px 10px rgba(0, 0, 0, 0.25);
-            z-index: -1;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            bottom: 0%;
-            right: 30px;
+    @media (min-height: 700px){
+        .rectangles{
+            top: 70px;
         }
+    }
 
-        .button_ready:hover {
-            background-color: #20C1BD;
-            transition: 0.3s;
-            transform: translateY(5px);
-            box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0, 0, 0, 0.25);
+    @media (min-height: 900px) {
+        .rectangles{
+            top: 200px;
         }
+    }
 
-        .button_ready:focus {
-            outline: none;
+    @media (min-height: 1100px) {
+        .rectangles{
+            top: 250px;
         }
-
-        .button_clear {
-            position: absolute;
-            width: 120px;
-            height: 20px;
-            background-color: #A26FB4;
-            box-shadow: 0px 5px #a23ca6, 0px 10px 10px rgba(0, 0, 0, 0.25);
-            z-index: -1;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            bottom: 0%;
-            left: 40px;
-        }
-
-        .button_clear:hover {
-            transition: 0.3s;
-            transform: translateY(5px);
-            box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0, 0, 0, 0.25);
-        }
-
-        .button_clear:focus {
-            outline: none;
-        }
+    } 
     </style>
 </head>
 <body>
-<div class="main_rectangle">
-    <div class="text_main_rectangle">Искусственный интеллект считает что это...</div>
+    <div class="header">
+        <div class="rectangle">
+            <div class="header_logo">
+                <a href="/" class="header_logo-link">
+                    <img src="./images/Draw.miit.svg" alt="Draw.miit" class="header_logo-pic">
+                </a>
+            </div>
+            <div class="header_icons">
+                <img src="./images/icons8_circled_thin_100_1.png" alt="circle" class="header_icons_circle">
+                <img src="./images/icons8________100_1.png" alt="anvil" class="header_icons_anvil">
+                <img src="./images/icons8________________________100_1.png" alt="airplane" class="header_icons_airplane">
+                <img src="./images/cloud.png" alt="cloud "class="header_icons_cloud">
+                <img src="./images/crab.png" alt="crab" class="header_icons_crab">
+                <img src="./images/icons8_christmas_star_100_1.png" alt="star" class="header_icons_star">
+                <img src="./images/icons8_moon_symbol_100_1.png" alt="moon" class="header_icons_moon">
+                <img src="./images/icons8_windmill_100_1.png" alt="windmill" class="header_icons_windmill">
+            </div>
+        </div>
+    </div>
+<div class="main">
+    <div class="rectangles">
+        <div class="main_rectangle">
+            <div class="text_main_rectangle">Искусственный интеллект считает что это...</div>
+        </div>
+        <div class="rectangle_message">
+            <div class="text_rectangle_message" th:text="*{name}">null</div>
+        </div>
+        <div class="rectangle_for_button">
+            <a href="/">
+                <button type="button" class="button_clear">Домой</button>
+            </a>
+            <a href="/paint">
+                <button type="button" class="button_ready">Вернуться к холсту</button>
+            </a>
+        </div>
+    </div>
 </div>
-<div class="rectangle_message">
-    <div class="text_rectangle_message" th:text="*{name}">null</div>
-</div>
-<div class="rectangle_for_button">
-    <a href="/">
-        <button type="button" class="button_clear">Домой</button>
-    </a>
-    <a href="/paint">
-        <button type="button" class="button_ready">Вернуться к холсту</button>
-    </a>
-</div>
+
+
+<ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li><img src="./images/icons8________100_1.png" alt="anvil2" class="anvil2"></li>
+    <li><img src="./images/icons8________________________100_1.png" alt="airplane2" class="airplane2"></li>
+    <li><img src="./images/icons8_zebra_100_1.png" alt="zebra2" class="zebra2"></li>
+    <li><img src="./images/icons8_windmill_100_1.png" alt="windmill2" class="windmill2"></li>
+    <li><img src="./images/icons8_christmas_star_100_1.png" alt="star2" class="star2"></li>
+
+</ul>
 </body>
 </html>

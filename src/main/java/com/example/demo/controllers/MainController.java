@@ -22,7 +22,8 @@ public class MainController {
     private String url = "";
     private byte[] image;
     private List predList = new ArrayList();
-    private String classPred ="null";
+
+    private String classPred = "null";
 
     @PostMapping("/saveCanvasImage")
     public String save(@RequestParam(value = "imageBase64") String imageData) {
@@ -88,14 +89,8 @@ public class MainController {
         return "page2";
     }
 
-    @GetMapping("/testing")
-    public String test() throws InterruptedException{
-        Thread.sleep(4000);
-        return "index";
-    }
-
     @GetMapping("/predict")
-    public String pred(org.springframework.ui.Model model1){
+    public String pred(org.springframework.ui.Model model1) {
         predList.add("Самолёт");
         predList.add("Наковальня");
         predList.add("Облако");
@@ -132,10 +127,5 @@ public class MainController {
             throw new RuntimeException(e);
         }
         return "page3";
-    }
-
-    @GetMapping("/ebalda")
-    public String getEbalda(){
-        return "test";
     }
 }
